@@ -6,13 +6,15 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v3
-      - name: Fetch environment file
-        shell: bash -l {0}
-        run: |
-          curl \
-          --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
-          --header 'Accept: application/vnd.github.v3.raw' \
-          -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/environment.yml"
+      
+#       - name: Fetch environment file
+#         shell: bash -l {0}
+#         run: |
+#           curl \
+#           --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
+#           --header 'Accept: application/vnd.github.v3.raw' \
+#           -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/environment.yml"
+          
       - name: Fetch Tests
         shell: bash -l {0}
         run: |
@@ -20,10 +22,10 @@ jobs:
           --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
           --header 'Accept: application/vnd.github.v3.raw' \
           -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/test.py"
+          
       - name: Install Conda environment with Micromamba
         uses: mamba-org/provision-with-micromamba@main
-        with:
-            environment-file: ./environment.yml
+
       - name: Run Tests
         shell: bash -l {0}
         run: python -m unittest test.py -vvv
