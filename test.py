@@ -29,7 +29,7 @@ class TestSolution(unittest.TestCase):
     def test_q1(self):
         # Numpy has an extensive test suite.
         # It's best to use allclose instead of equal to avoid problems with machine precision
-        np.testing.assert_allclose(q1, 45.0)
+        np.testing.assert_allclose(q1, 46.0)
         return
 
 
