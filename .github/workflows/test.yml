@@ -1,3 +1,6 @@
+env:
+    ASSIGNMENT: test_workflow
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
