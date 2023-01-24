@@ -15,13 +15,13 @@ jobs:
 #           --header 'Accept: application/vnd.github.v3.raw' \
 #           -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/environment.yml"
           
-      - name: Fetch Tests
-        shell: bash -l {0}
-        run: |
-          curl \
-          --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
-          --header 'Accept: application/vnd.github.v3.raw' \
-          -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/test.py"
+#       - name: Fetch Tests
+#         shell: bash -l {0}
+#         run: |
+#           curl \
+#           --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
+#           --header 'Accept: application/vnd.github.v3.raw' \
+#           -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/test.py"
           
       - name: Install Conda environment with Micromamba
         uses: mamba-org/provision-with-micromamba@main
