@@ -10,16 +10,16 @@ jobs:
         shell: bash -l {0}
         run: |
           curl \
-          --header 'Authorization: token ${{secrets.SECRET_PGE311_TOKEN}}' \
+          --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
           --header 'Accept: application/vnd.github.v3.raw' \
-          -O --location "https://api.github.com/repos/PGE-311-Sp23/${ASSIGNMENT}/contents/environment.yml"
+          -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/environment.yml"
       - name: Fetch Tests
         shell: bash -l {0}
         run: |
           curl \
-          --header 'Authorization: token ${{secrets.SECRET_PGE311_TOKEN}}' \
+          --header 'Authorization: token ${{secrets.SECRET_TEST_TOKEN}}' \
           --header 'Accept: application/vnd.github.v3.raw' \
-          -O --location "https://api.github.com/repos/PGE-311-Sp23/${ASSIGNMENT}/contents/test.py"
+          -O --location "https://api.github.com/repos/PGE311-S23/${ASSIGNMENT}/contents/test.py"
       - name: Install Conda environment from environment.yml
         uses: mamba-org/provision-with-micromamba@main
         with:
